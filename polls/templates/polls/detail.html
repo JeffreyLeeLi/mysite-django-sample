@@ -12,9 +12,9 @@
 
 <form>
 	{%for c in question.choice_set.all%}
-		<input type = "radio" />
+		<input type = "radio" id = "{{forloop.counter}}" />
 
-		<label>
+		<label for = "{{forloop.counter}}">
 			{{c.choice_text}}
 		</label>
 
