@@ -11,6 +11,8 @@
 </ul>
 
 <form>
+	{%csrf_token%}
+	
 	{%for c in question.choice_set.all%}
 		<input type = "radio" name = "choice" id = "{{forloop.counter}}" value = "{{c.id}}" />
 
