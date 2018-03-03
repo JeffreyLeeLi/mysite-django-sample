@@ -9,3 +9,19 @@
 		</li>
 	{%endfor%}
 </ul>
+
+<form>
+	{%for c in question.choice_set.all%}
+		<input type = "radio" />
+
+		<label>
+			{{c.choice_text}}
+		</label>
+
+		<br />
+	{%endfor%}
+
+	<br />
+
+	<input type = "submit" value = "Vote" />
+</form>
