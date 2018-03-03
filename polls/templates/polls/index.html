@@ -1,10 +1,10 @@
-{%if all_questions.count <= 0 %}
+{%if question_list.count <= 0 %}
 	<p>
 		No polls available
 	</p>
 {%else%}
 	<ul>
-		{%for q in all_questions%}
+		{%for q in question_list%}
 			<li>
 				<a href = {%url 'polls:detail' q.id%}>
 					{{q.question_text}}
