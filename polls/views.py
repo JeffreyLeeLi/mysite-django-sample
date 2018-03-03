@@ -9,3 +9,6 @@ def index(request):
 	all_questions = Question.objects.all()
 	response = ', '.join([q.question_text for q in all_questions])
 	return HttpResponse(response)
+
+def detail(request, question_id):
+	return HttpResponse("Question: %s" % question_id)
