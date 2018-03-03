@@ -7,7 +7,7 @@ app_name = PollsConfig.name
 
 urlpatterns = [
 	# /polls/
-	path('', views.index, name = 'index'),
+	path('', views.IndexView.as_view(), name = 'index'),
 
 	# /polls/1/
 	path('<int:pk>/', views.DetailView.as_view(), name = 'detail'),

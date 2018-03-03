@@ -7,13 +7,13 @@ from .models import Question, Choice
 
 # Create your views here.
 
-def index(request):
-	all_questions = Question.objects.order_by('-pub_date')
-	context = {
-		'all_questions': all_questions,
-	}
+class IndexView(generic.ListView):
+	template_name = 'polls/index.html'
 
-	return render(request, 'polls/index.html', context)
+	context_object_name = 'all_questions'
+
+	def get_queryset(self):
+		return Question.objects.order_by('-pub_date')
 
 class DetailView(generic.DetailView):
 	model = Question
