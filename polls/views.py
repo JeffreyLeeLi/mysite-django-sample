@@ -6,7 +6,7 @@ from .models import Question
 # Create your views here.
 
 def index(request):
-	all_questions = Question.objects.all()
+	all_questions = Question.objects.order_by('-pub_date')
 	context = {
 		'all_questions': all_questions,
 	}
