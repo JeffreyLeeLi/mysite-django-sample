@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import loader
 
 from .models import Question
 
@@ -8,15 +7,11 @@ from .models import Question
 
 def index(request):
 	all_questions = Question.objects.all()
-	template = loader.get_template('polls/index.html')
-
 	context = {
 		'all_questions': all_questions,
 	}
 
-	response = template.render(context, request)
-
-	return HttpResponse(response)
+	return render(request, 'polls/index.html', context)
 
 def detail(request, question_id):
 	return HttpResponse("Question: %s" % question_id)
