@@ -13,7 +13,7 @@ urlpatterns = [
 	path('<int:pk>/', views.DetailView.as_view(), name = 'detail'),
 
 	# /polls/1/result/
-	path('<int:question_id>/result', views.result, name = 'result'),
+	path('<int:pk>/result', views.ResultView.as_view(), name = 'result'),
 
 	# /polls/1/vote/
 	path('<int:question_id>/vote', views.vote, name = 'vote'),

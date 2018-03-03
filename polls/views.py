@@ -19,13 +19,9 @@ class DetailView(generic.DetailView):
 	model = Question
 	template_name = 'polls/detail.html'
 
-def result(request, question_id):
-	q = get_object_or_404(Question, pk = question_id)
-	context = {
-		'question': q,
-	}
-
-	return render(request, 'polls/result.html', context)
+class ResultView(generic.DetailView):
+	model = Question
+	template_name = 'polls/result.html'
 
 def vote(request, question_id):
 	q = get_object_or_404(Question, pk = question_id)
