@@ -1,8 +1,8 @@
 import datetime
 
 from django.utils import timezone
-
-from django.test import TestCase
+from django.urls import reverse
+from django.test import TestCase, Client
 
 from .models import Question
 
@@ -26,3 +26,12 @@ class QuestionModelTests(TestCase):
 		future_question = Question(pub_date = time)
 
 		self.assertIs(future_question.was_published_recently(), True)
+
+class QuestionIndexViewTests(TestCase):
+	client = Client()
+
+	def test_no_questions(self):
+		response = self.client.get(reverse('polls:index'))
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, "No polls available")
+		self.assertQuerysetEqual(response.context['question_list'], [])
