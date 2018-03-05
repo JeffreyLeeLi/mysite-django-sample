@@ -7,7 +7,7 @@ from .models import Choice
 
 class ChoiceInline(admin.TabularInline):
 	model = Choice
-	extra = 1
+	extra = 0
 
 class QuestionAdmin(admin.ModelAdmin):
 	fieldsets = [
