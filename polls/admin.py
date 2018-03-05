@@ -13,6 +13,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
 		('Date Information', {
 			'fields': ['pub_date'],
+			'classes': ['collapse'],
 		}),
 	]
 
