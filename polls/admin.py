@@ -10,6 +10,8 @@ class ChoiceInline(admin.TabularInline):
 	extra = 0
 
 class QuestionAdmin(admin.ModelAdmin):
+	list_display = ['question_text', 'pub_date']
+
 	fieldsets = [
 		(None, {
 			'fields': ['question_text'],
